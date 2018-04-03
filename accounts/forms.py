@@ -1,7 +1,7 @@
 from django import forms
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import ButtonHolder, Field, Layout, Submit
+from crispy_forms.layout import ButtonHolder, Div, Field, Layout, Submit
 
 from .models import Profile
 
@@ -58,5 +58,6 @@ class UserForm(forms.ModelForm):
             Field('city', placeholder=self.instance.city or 'City'),
             Field('state', placeholder=self.instance.state or 'State'),
             Field('zipcode', placeholder=self.instance.zipcode or 'Zipcode'),
-            ButtonHolder(Submit('submit', 'Save Specs', css_class='btn'))
+            Div(ButtonHolder(Submit('submit', 'Save Specs', css_class='btn')), css_class='text-center')
+
         )
